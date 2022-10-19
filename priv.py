@@ -1,12 +1,3 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-###---[ INFO AUTHOR GANS DIKIT ]---###
-#----[ jangan di oprek, sayangi data hpmu ]-----#
-author = 'Rochmat Basuki'
-git_hub = 'github.com/RozhBasXYZ'
-faceb0ok = 'ROCHMAT BASUKI XD'
-version = 'next blade v.1'
-
 
 ###---[ WARNA ]--###
 P = '\033[97m'  # PUTIH
