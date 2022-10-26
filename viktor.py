@@ -12,7 +12,7 @@ banner = ("""
 [bold red]╔═╗┌┐    ╔═╗┬─┐┌─┐┌─┐┬┌─
 [bold red]╠╣ ├┴┐───║  ├┬┘├─┤│  ├┴┐
 [bold white]╚  └─┘   ╚═╝┴└─┴ ┴└─┘┴ ┴
-[bold white]Moded""")# Don't Change Author Name!
+[bold white]Moded by Pixi""")# Don't Change Author Name!
 # Clear
 def Clear():
     if sys.platform.lower() == 'win':
